@@ -16,15 +16,15 @@ let correo = $("correo")
 total = (cantidad, categoria, valorTicket) => {
   let resultado;
   switch (true) {
-    case categoria===1 && cantidad !==NaN:
+    case categoria===1 && !isNaN(cantidad):
       resultado = cantidad * (valorTicket - valorTicket * 0.8);
       console.log(resultado);
       break;
-    case categoria===2 && cantidad !==NaN:
+    case categoria===2 && !isNaN(cantidad):
       resultado = cantidad * (valorTicket - valorTicket * 0.5);
       console.log(resultado);
       break;
-    case categoria===3 && cantidad !==NaN:
+    case categoria===3 && !isNaN(cantidad):
       resultado = cantidad * (valorTicket - valorTicket * 0.15);
       console.log(resultado);
       break;
@@ -40,7 +40,7 @@ btnResumen.addEventListener("click", () => {
   let cantidadParsed = parseInt(cantidad.value);
 
   let resultado = total(cantidadParsed,categoriaParsed,valorTicket)
-  if(resultado!==undefined){
+  if(resultado!==undefined && !isNaN(resultado)){
     totalPagar.innerText= `Total a Pagar:$${resultado}`
   }
   else{
